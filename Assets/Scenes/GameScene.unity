@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   m_LocalRotation: {x: -0.26324514, y: 0.17306145, z: -0.048065268, w: -0.9478615}
-  m_LocalPosition: {x: 2.5915666, y: 2.537682, z: -1.5922029}
+  m_LocalPosition: {x: 2.5915666, y: 3.5, z: -1.5922029}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -422,7 +422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1033584048
 Transform:
   m_ObjectHideFlags: 0
@@ -432,7 +432,7 @@ Transform:
   m_GameObject: {fileID: 1033584047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1441632145}
@@ -578,6 +578,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c35f0a88d853b4d09ba6c207e4f4620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mousePlaneLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1001 &1589715005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -720,7 +723,7 @@ GameObject:
   - component: {fileID: 2125810730}
   - component: {fileID: 2125810729}
   - component: {fileID: 2125810728}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

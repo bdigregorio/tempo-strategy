@@ -1,12 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UnitController : MonoBehaviour {
     private Vector3 targetPosition;
     private float moveMagnitude = 4f;
     private const float StoppingDistance = 0.01f;
+    private const int LeftMouseButton = 0;
+    private const int RightMouseButton = 1;
 
     void Update() {
         var distanceToGo = Math.Abs(Vector3.Distance(targetPosition, transform.position));
@@ -15,8 +16,8 @@ public class UnitController : MonoBehaviour {
             transform.position +=  Time.deltaTime * moveMagnitude * moveDirection;
         }
         
-        if (Input.GetKeyDown(KeyCode.T)) {
-            Move(new Vector3(4, 0, 4));
+        if (Input.GetMouseButtonDown(LeftMouseButton)) {
+            Move(MouseWorld.GetPosition());
         }
     }
 
