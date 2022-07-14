@@ -14,7 +14,11 @@ public class UnitController : MonoBehaviour {
     // cached values
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
 
-    void Update() {
+    private void Awake() {
+        targetPosition = transform.position;
+    }
+
+    private void Update() {
         MoveIfNecessary();
     }
 
