@@ -10,14 +10,11 @@ public class UnitController : MonoBehaviour {
     private const float MoveMagnitude = 4f;
     private const float RotateMagnitude = 10f;
     private const float StoppingDistance = 0.01f;
-    private const int LeftMouseButton = 0;
-    private const int RightMouseButton = 1;
     
     // cached values
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
 
     void Update() {
-        ReadInput();
         MoveIfNecessary();
     }
 
@@ -33,13 +30,7 @@ public class UnitController : MonoBehaviour {
         }
     }
 
-    private void ReadInput() {
-        if (Input.GetMouseButtonDown(LeftMouseButton)) {
-            Move(MouseWorld.GetPosition());
-        }
-    }
-
-    private void Move(Vector3 position) {
+    public void Move(Vector3 position) {
         this.targetPosition = position;
     }
 }
