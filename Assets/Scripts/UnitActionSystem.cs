@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class UnitActionSystem : MonoBehaviour {
@@ -7,6 +8,8 @@ public class UnitActionSystem : MonoBehaviour {
     // constants
     private const int LeftMouseButton = 0;
     private const int RightMouseButton = 1;
+    
+    public event EventHandler OnSelectedUnitChanged;
 
     void Update() {
         if (Input.GetMouseButtonDown(LeftMouseButton)) {
@@ -19,12 +22,21 @@ public class UnitActionSystem : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hitInfo, float.MaxValue, unitLayerMask)) {
             if (hitInfo.transform.TryGetComponent<UnitController>(out UnitController unit)) {
-                selectedUnit = unit;
+                SetSelectedUnit(unit);
                 return true;
             }
         }
 
         return false;
+    }
+
+    private void SetSelectedUnit(UnitController unit) {
+        selectedUnit = unit;
+        OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public UnitController GetSelectedUnit() {
+        return selectedUnit;
     }
 
     private void HandleMovement() {
