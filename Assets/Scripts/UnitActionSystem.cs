@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 
 public class UnitActionSystem : MonoBehaviour {
+    public static UnitActionSystem Instance { get; private set; }
+    
     [SerializeField] private UnitController selectedUnit;
     [SerializeField] private LayerMask unitLayerMask;
 
@@ -10,6 +12,16 @@ public class UnitActionSystem : MonoBehaviour {
     private const int RightMouseButton = 1;
     
     public event EventHandler OnSelectedUnitChanged;
+
+    private void Awake() {
+        if (Instance != null) {
+            Debug.Log($"There is more than one UnitActionSystem - {transform} - {Instance}");
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
 
     void Update() {
         if (Input.GetMouseButtonDown(LeftMouseButton)) {
